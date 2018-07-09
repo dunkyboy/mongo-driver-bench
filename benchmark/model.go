@@ -1,14 +1,14 @@
-package shared
+package benchmark
 
 import "time"
 
-type SmallStructDepth1 struct {
+type SmallStruct struct {
 	aNumber int64
 	aTime time.Time
 	someText string
 }
 
-type LargerStructDepth1 struct {
+type LargerStruct struct {
 	aNumber1 int64
 	aTime1 time.Time
 	someText1 string
@@ -39,4 +39,9 @@ type LargerStructDepth1 struct {
 	aNumber10 int64
 	aTime10 time.Time
 	someText10 string
+}
+
+type SmallStructDepth3 struct {
+	aNumber int64
+	nested SmallStruct
 }
