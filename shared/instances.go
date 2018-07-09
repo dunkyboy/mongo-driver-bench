@@ -11,18 +11,33 @@ var ASmallStruct = SmallStruct{
 }
 
 var ALargerStruct = LargerStruct{
-	SomeText1: textMediumLength,
-	SomeText2: textMediumLength,
-	SomeText3: textMediumLength,
-	SomeText4: textMediumLength,
-	SomeText5: textMediumLength,
-	SomeText6: textMediumLength,
-	SomeText7: textMediumLength,
-	SomeText8: textMediumLength,
-	SomeText9: textMediumLength,
+	SomeText1:  textMediumLength,
+	SomeText2:  textMediumLength,
+	SomeText3:  textMediumLength,
+	SomeText4:  textMediumLength,
+	SomeText5:  textMediumLength,
+	SomeText6:  textMediumLength,
+	SomeText7:  textMediumLength,
+	SomeText8:  textMediumLength,
+	SomeText9:  textMediumLength,
 	SomeText10: textMediumLength,
 }
 
 var ASmallNestedStruct = SmallStructDepth9{
-	SomeText: textMediumLength,
+	Other: ASmallStruct,
+	// nested structs will have empty strings, meh
+}
+
+var ALargerNestedStruct = LargerStructDepth9{
+	SomeText1:  textMediumLength,
+	SomeText2:  textMediumLength,
+	SomeText3:  textMediumLength,
+	SomeText4:  textMediumLength,
+	SomeText5:  textMediumLength,
+	SomeText6:  textMediumLength,
+	SomeText7:  textMediumLength,
+	SomeText8:  textMediumLength,
+	SomeText9:  textMediumLength,
+	SomeText10: textMediumLength,
+	// nested structs will have empty strings, meh
 }

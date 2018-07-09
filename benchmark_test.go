@@ -21,14 +21,16 @@ func BenchMarshal(b *testing.B, input interface{}, marshaler func(interface{}) [
 	marshalResult = bytes
 }
 
-func BenchUnmarshal(b *testing.B, input []byte, unmarshaler func([]byte) interface{}) {
-	var output interface{}
+func BenchUnmarshal(b *testing.B, input []byte, output interface{}, unmarshaler func([]byte, interface{}) bool) {
+	var resultSuccess bool
 
 	for n := 0; n < b.N; n++ {
-		output = unmarshaler(input)
+		resultSuccess = unmarshaler(input, output)
 	}
 
-	unmarshalResult = output
+	if resultSuccess {
+		unmarshalResult = output
+	}
 }
 
 func BenchmarkMgoMarshalSmallStruct(b *testing.B) {
@@ -43,16 +45,24 @@ func BenchmarkMgoMarshalLargeStruct(b *testing.B) {
 	BenchMarshal(b, shared.ALargerStruct, mgo.Marshaler)
 }
 
+func BenchmarkMgoMarshalLargeNestedStruct(b *testing.B) {
+	BenchMarshal(b, shared.ALargerNestedStruct, mgo.Marshaler)
+}
+
 func BenchmarkMgoUnmarshalSmallStruct(b *testing.B) {
-	BenchUnmarshal(b, mgo.Marshaler(shared.ASmallStruct), mgo.Unmarshaler)
+	BenchUnmarshal(b, mgo.Marshaler(shared.ASmallStruct), &shared.SmallStruct{}, mgo.Unmarshaler)
 }
 
 func BenchmarkMgoUnmarshalSmallNestedStruct(b *testing.B) {
-	BenchUnmarshal(b, mgo.Marshaler(shared.ASmallNestedStruct), mgo.Unmarshaler)
+	BenchUnmarshal(b, mgo.Marshaler(shared.ASmallNestedStruct), &shared.SmallStructDepth9{}, mgo.Unmarshaler)
 }
 
 func BenchmarkMgoUnmarshalLargeStruct(b *testing.B) {
-	BenchUnmarshal(b, mgo.Marshaler(shared.ALargerStruct), mgo.Unmarshaler)
+	BenchUnmarshal(b, mgo.Marshaler(shared.ALargerStruct), &shared.LargerStruct{}, mgo.Unmarshaler)
+}
+
+func BenchmarkMgoUnmarshalLargeNestedStruct(b *testing.B) {
+	BenchUnmarshal(b, mgo.Marshaler(shared.ALargerNestedStruct), &shared.LargerStructDepth9{}, mgo.Unmarshaler)
 }
 
 func BenchmarkDriverMarshalSmallStruct(b *testing.B) {
@@ -67,16 +77,24 @@ func BenchmarkDriverMarshalLargeStruct(b *testing.B) {
 	BenchMarshal(b, shared.ALargerStruct, driver.Marshaler)
 }
 
+func BenchmarkDriverMarshalLargeNestedStruct(b *testing.B) {
+	BenchMarshal(b, shared.ALargerNestedStruct, driver.Marshaler)
+}
+
 func BenchmarkDriverUnmarshalSmallStruct(b *testing.B) {
-	BenchUnmarshal(b, driver.Marshaler(shared.ASmallStruct), driver.Unmarshaler)
+	BenchUnmarshal(b, driver.Marshaler(shared.ASmallStruct), &shared.SmallStruct{}, driver.Unmarshaler)
 }
 
 func BenchmarkDriverUnmarshalSmallNestedStruct(b *testing.B) {
-	BenchUnmarshal(b, driver.Marshaler(shared.ASmallNestedStruct), driver.Unmarshaler)
+	BenchUnmarshal(b, driver.Marshaler(shared.ASmallNestedStruct), &shared.SmallStructDepth9{}, driver.Unmarshaler)
 }
 
 func BenchmarkDriverUnmarshalLargeStruct(b *testing.B) {
-	BenchUnmarshal(b, driver.Marshaler(shared.ALargerStruct), driver.Unmarshaler)
+	BenchUnmarshal(b, driver.Marshaler(shared.ALargerStruct), &shared.LargerStruct{}, driver.Unmarshaler)
+}
+
+func BenchmarkDriverUnmarshalLargeNestedStruct(b *testing.B) {
+	BenchUnmarshal(b, driver.Marshaler(shared.ALargerNestedStruct), &shared.LargerStructDepth9{}, driver.Unmarshaler)
 }
 
 
