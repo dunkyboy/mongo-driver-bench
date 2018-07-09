@@ -28,6 +28,14 @@ func BenchmarkMarshalSmallStructDepth1(b *testing.B) {
 	shared.BenchMarshal(b, &shared.ASmallStructDepth1, marshaler)
 }
 
+func BenchmarkMarshalLargeStructDepth1(b *testing.B) {
+	shared.BenchMarshal(b, &shared.ALargerStructDepth1, marshaler)
+}
+
 func BenchmarkUnmarshalSmallStructDepth1(b *testing.B) {
 	shared.BenchUnmarshal(b, marshaler(&shared.ASmallStructDepth1), unmarshaler)
+}
+
+func BenchmarkUnmarshalLargeStructDepth1(b *testing.B) {
+	shared.BenchUnmarshal(b, marshaler(&shared.ALargerStructDepth1), unmarshaler)
 }
