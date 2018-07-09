@@ -1,4 +1,4 @@
-package benchmark
+package shared
 
 import (
 	"github.com/dunkyboy/mongo-driver-bench/mgo"
@@ -38,6 +38,14 @@ func BenchmarkDriverMarshalSmallStruct(b *testing.B) {
 	BenchMarshal(b, &ASmallStruct, driver.Marshaler)
 }
 
+func BenchmarkMgoMarshalSmallNestedStruct(b *testing.B) {
+	BenchMarshal(b, &ASmallNestedStruct, mgo.Marshaler)
+}
+
+func BenchmarkDriverMarshalSmallNestedStruct(b *testing.B) {
+	BenchMarshal(b, &ASmallNestedStruct, driver.Marshaler)
+}
+
 func BenchmarkMgoMarshalLargeStruct(b *testing.B) {
 	BenchMarshal(b, &ALargerStruct, mgo.Marshaler)
 }
@@ -52,6 +60,14 @@ func BenchmarkMgoUnmarshalSmallStruct(b *testing.B) {
 
 func BenchmarkDriverUnmarshalSmallStruct(b *testing.B) {
 	BenchUnmarshal(b, driver.Marshaler(&ASmallStruct), driver.Unmarshaler)
+}
+
+func BenchmarkMgoUnmarshalSmallNestedStruct(b *testing.B) {
+	BenchUnmarshal(b, mgo.Marshaler(&ASmallNestedStruct), mgo.Unmarshaler)
+}
+
+func BenchmarkDriverUnmarshalSmallNestedStruct(b *testing.B) {
+	BenchUnmarshal(b, driver.Marshaler(&ASmallNestedStruct), driver.Unmarshaler)
 }
 
 func BenchmarkMgoUnmarshalLargeStruct(b *testing.B) {
