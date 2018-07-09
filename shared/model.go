@@ -3,85 +3,85 @@ package shared
 import "time"
 
 type SmallStruct struct {
-	aNumber int64
-	aTime time.Time
-	someText string
+	ANumber int64
+	ATime time.Time
+	SomeText string
 }
 
 type LargerStruct struct {
-	aNumber1 int64
-	aTime1 time.Time
-	someText1 string
-	aNumber2 int64
-	aTime2 time.Time
-	someText2 string
-	aBool bool
-	aTime3 time.Time
-	someText3 string
-	aNumber4 int64
-	aTime4 time.Time
-	someText4 string
-	aNumber5 int64
-	aTime5 time.Time
-	someText5 string
-	aNumber6 int64
-	aTime6 time.Time
-	someText6 string
-	aFloat float64
-	aTime7 time.Time
-	someText7 string
-	bytes [16]byte
-	aTime8 time.Time
-	someText8 string
-	aNumber9 int64
-	aTime9 time.Time
-	someText9 string
-	aByte byte
-	aTime10 time.Time
-	someText10 string
+	ANumber1 int64
+	ATime1 time.Time
+	SomeText1 string
+	ANumber2 int64
+	ATime2 time.Time
+	SomeText2 string
+	ABool bool
+	ATime3 time.Time
+	SomeText3 string
+	ANumber4 int64
+	ATime4 time.Time
+	SomeText4 string
+	ANumber5 int64
+	ATime5 time.Time
+	SomeText5 string
+	ANumber6 int64
+	ATime6 time.Time
+	SomeText6 string
+	AFloat float64
+	ATime7 time.Time
+	SomeText7 string
+	ANumber uint32
+	ATime8 time.Time
+	SomeText8 string
+	ANumber9 int64
+	ATime9 time.Time
+	SomeText9 string
+	AByte byte
+	ATime10 time.Time
+	SomeText10 string
 }
 
 type SmallStructDepth9 struct {
-	someText string
-	nested  smallNestedStruct2
+	SomeText string
+	Nested  smallNestedStruct2
 }
 
 type smallNestedStruct2 struct {
-	aTime time.Time
-	nested smallNestedStruct3
+	ATime time.Time
+	Nested smallNestedStruct3
 }
 
 type smallNestedStruct3 struct {
-	aBool bool
-	nested smallNestedStruct4
+	ABool bool
+	Nested smallNestedStruct4
 }
 
 type smallNestedStruct4 struct {
-	bytes [16]byte
-	nested smallNestedStruct5
+	ANumber uint32
+	Nested smallNestedStruct5
 }
 
 type smallNestedStruct5 struct {
-	aByte byte
-	nested smallNestedStruct6
+	AByte byte
+	Nested smallNestedStruct6
 }
 
 type smallNestedStruct6 struct {
-	aTime time.Time
-	nested smallNestedStruct7
+	ATime time.Time
+	Nested smallNestedStruct7
 }
 
 type smallNestedStruct7 struct {
-	aFloat float64
-	nested smallNestedStruct8
+	AFloat float64
+	Nested smallNestedStruct8
 }
 
 type smallNestedStruct8 struct {
-	aTime time.Time
-	nested smallNestedStruct9
+	ATime time.Time
+	Nested smallNestedStruct9
 }
 
 type smallNestedStruct9 struct {
-	aTime time.Time
-	nested SmallStruct
+	ATime time.Time
+	Nested SmallStruct
 }

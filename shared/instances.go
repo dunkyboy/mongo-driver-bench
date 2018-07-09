@@ -4,25 +4,25 @@ var textMediumLength = "The quick brown fox jumps over the lazy dog. Then it did
 	"little longer so we get a string that's somewhere between a short string (like a hostname perhaps) and a long " +
 	"text blob"
 
-// zero vallues are fine for everything but strings
+// zero values are fine for everything but strings
 
 var ASmallStruct = SmallStruct{
-	someText: textMediumLength,
+	SomeText: textMediumLength,
 }
 
 var ALargerStruct = LargerStruct{
-	someText1: textMediumLength,
-	someText2: textMediumLength,
-	someText3: textMediumLength,
-	someText4: textMediumLength,
-	someText5: textMediumLength,
-	someText6: textMediumLength,
-	someText7: textMediumLength,
-	someText8: textMediumLength,
-	someText9: textMediumLength,
-	someText10: textMediumLength,
+	SomeText1: textMediumLength,
+	SomeText2: textMediumLength,
+	SomeText3: textMediumLength,
+	SomeText4: textMediumLength,
+	SomeText5: textMediumLength,
+	SomeText6: textMediumLength,
+	SomeText7: textMediumLength,
+	SomeText8: textMediumLength,
+	SomeText9: textMediumLength,
+	SomeText10: textMediumLength,
 }
 
 var ASmallNestedStruct = SmallStructDepth9{
-	someText: textMediumLength,
+	SomeText: textMediumLength,
 }
