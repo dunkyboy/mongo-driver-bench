@@ -6,8 +6,7 @@ import (
 )
 
 var Marshaler = func(in interface{}) []byte {
-	out, err := bson.Marshal(
-		in)
+	out, err := bson.Marshal(in)
 	if err != nil {
 		panic(err)
 	}

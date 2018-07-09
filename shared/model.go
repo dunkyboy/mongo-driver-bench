@@ -48,40 +48,40 @@ type SmallStructDepth9 struct {
 
 type smallNestedStruct2 struct {
 	aTime time.Time
-	nested3 smallNestedStruct3
+	nested smallNestedStruct3
 }
 
 type smallNestedStruct3 struct {
 	aBool bool
-	nested3 smallNestedStruct4
+	nested smallNestedStruct4
 }
 
 type smallNestedStruct4 struct {
 	bytes [16]byte
-	nested3 smallNestedStruct5
+	nested smallNestedStruct5
 }
 
 type smallNestedStruct5 struct {
 	aByte byte
-	nested3 smallNestedStruct6
+	nested smallNestedStruct6
 }
 
 type smallNestedStruct6 struct {
 	aTime time.Time
-	nested3 smallNestedStruct7
+	nested smallNestedStruct7
 }
 
 type smallNestedStruct7 struct {
 	aFloat float64
-	nested3 smallNestedStruct8
+	nested smallNestedStruct8
 }
 
 type smallNestedStruct8 struct {
 	aTime time.Time
-	nested3 smallNestedStruct9
+	nested smallNestedStruct9
 }
 
 type smallNestedStruct9 struct {
 	aTime time.Time
-	nested3 SmallStruct
+	nested SmallStruct
 }
