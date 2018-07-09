@@ -6,37 +6,28 @@ import (
 	"testing"
 )
 
-func BenchmarkMarshalSmallStructDepth1(b *testing.B) {
-	in := shared.ASmallStructDepth1
-
-	shared.BenchMarshal(
-		b,
-		func() []byte {
-			out, err := bson.Marshal(&in)
-			if err != nil {
-				panic(err)
-			}
-			return out
-		},
-	)
-}
-
-func BenchmarkUnmarshalSmallStructDepth1(b *testing.B) {
-
-	input, err := bson.Marshal(&shared.ASmallStructDepth1)
+var marshaler = func(in interface{}) []byte {
+	out, err := bson.Marshal(
+		in)
 	if err != nil {
 		panic(err)
 	}
+	return out
+}
 
-	shared.BenchUnmarshal(
-		b,
-		func() interface{} {
-			var output shared.SmallStructDepth1
-			err := bson.Unmarshal(input, &output)
-			if err != nil {
-				panic(err)
-			}
-			return output
-		},
-	)
+var unmarshaler = func(input []byte) interface{} {
+	var output shared.SmallStructDepth1
+	err := bson.Unmarshal(input, &output)
+	if err != nil {
+		panic(err)
+	}
+	return output
+}
+
+func BenchmarkMarshalSmallStructDepth1(b *testing.B) {
+	shared.BenchMarshal(b, &shared.ASmallStructDepth1, marshaler)
+}
+
+func BenchmarkUnmarshalSmallStructDepth1(b *testing.B) {
+	shared.BenchUnmarshal(b, marshaler(&shared.ASmallStructDepth1), unmarshaler)
 }
