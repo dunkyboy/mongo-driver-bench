@@ -8,12 +8,6 @@
   version = "v1.7.0"
 
 [[projects]]
-  branch = "master"
-  name = "github.com/golang/snappy"
-  packages = ["."]
-  revision = "2e65f85255dbc3072edf28d6b5b8efc472979f5a"
-
-[[projects]]
   name = "github.com/mongodb/mongo-go-driver"
   packages = [
     "bson",
@@ -23,27 +17,7 @@
     "bson/internal/jsonparser",
     "bson/objectid",
     "bson/parser",
-    "bson/parser/ast",
-    "core/address",
-    "core/auth",
-    "core/auth/internal/gssapi",
-    "core/command",
-    "core/compressor",
-    "core/connection",
-    "core/connstring",
-    "core/description",
-    "core/dispatch",
-    "core/option",
-    "core/readconcern",
-    "core/readpref",
-    "core/result",
-    "core/tag",
-    "core/topology",
-    "core/version",
-    "core/wiremessage",
-    "core/writeconcern",
-    "internal",
-    "mongo"
+    "bson/parser/ast"
   ]
   revision = "545effea171428c3e129274032cedbf9beb0e724"
   version = "v0.0.8"
@@ -51,31 +25,16 @@
 [[projects]]
   branch = "v2"
   name = "gopkg.in/mgo.v2"
-  packages = [".","bson","internal/json","internal/sasl","internal/scram"]
+  packages = [
+    "bson",
+    "internal/json"
+  ]
   revision = "60f23985327354fe2d4dde32ba05598bb047a114"
-  source = "https://github.com/10gen/mgo.git"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/crypto"
-  packages = ["pbkdf2"]
-  revision = "a49355c7e3f8fe157a85be2f77e6e269a0f89602"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/net"
-  packages = ["context"]
-  revision = "32a936f46389aa10549d60bd7833e54b01685d09"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/sync"
-  packages = ["semaphore"]
-  revision = "1d60e4601c6fd243af51cc01ddf169918a5407ca"
+  source = "github.com/10gen/mgo"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "78fcf722aec6ae5037f240985927490bcd53926750c2e8dee8a5b9a840735421"
+  inputs-digest = "aaba91791019f36f00a5b6b1a290706e08e9e50077d44e57c47a6579531237ed"
   solver-name = "gps-cdcl"
   solver-version = 1
